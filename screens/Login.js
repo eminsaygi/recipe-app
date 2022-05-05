@@ -2,24 +2,17 @@ import React from 'react';
 import {
     View,
     Text,
-    TouchableOpacity
+    TouchableOpacity,
+    ImageBackground,
+    StatusBar
 } from 'react-native';
+
+import {images,COLORS,SIZES,FONTS} from '../constants'
 
 const Login = ({ navigation }) => {
     return (
-        <View
-            style={{
-                flex: 1,
-                alignItems: 'center',
-                justifyContent: 'center'
-            }}
-        >
-            <Text>Login</Text>
-            <TouchableOpacity
-                onPress={() => navigation.replace("Home")}
-            >
-                <Text>Navigate to Home</Text>
-            </TouchableOpacity>
+        <View>
+
         </View>
     )
 }
