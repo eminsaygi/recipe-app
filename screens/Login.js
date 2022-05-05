@@ -1,42 +1,39 @@
-import React from "react";
+import React from 'react';
 import {
   View,
   Text,
   TouchableOpacity,
   ImageBackground,
   StatusBar,
-} from "react-native";
-import { FONTS, SIZES, COLORS, images } from "../constants";
-import LinearGradient from "react-native-linear-gradient";
-import { CustomButton } from "../components";
+} from 'react-native';
+import {FONTS, SIZES, COLORS, images} from '../constants';
+import LinearGradient from 'react-native-linear-gradient';
+import {CustomButton} from '../components';
 
-const Login = ({ navigation }) => {
+const Login = ({navigation}) => {
   let renderHeader = () => {
     return (
-      <View style={{ height: SIZES.height > 700 ? "65%" : "60%" }}>
+      <View style={{height: SIZES.height > 700 ? '65%' : '60%'}}>
         <ImageBackground
-          style={{ flex: 1, justifyContent: "flex-end" }}
+          style={{flex: 1, justifyContent: 'flex-end'}}
           resizeMode="cover"
-          source={images.loginBackground}
-        >
+          source={images.loginBackground}>
           <LinearGradient
-            start={{ x: 0, y: 0 }}
-            end={{ x: 0, y: 1 }}
+            start={{x: 0, y: 0}}
+            end={{x: 0, y: 1}}
             colors={[COLORS.transparent, COLORS.black]}
             style={{
               height: 200,
-              justifyContent: "flex-end",
+              justifyContent: 'flex-end',
               paddingHorizontal: SIZES.padding,
-            }}
-          >
+            }}>
             <Text
               style={{
                 color: COLORS.white,
-                width: "80%",
+                width: '80%',
                 ...FONTS.largeTitle,
                 lineHeight: 45,
-              }}
-            >
+              }}>
               Cooking a Delicious Food Easily
             </Text>
           </LinearGradient>
@@ -47,27 +44,26 @@ const Login = ({ navigation }) => {
 
   let renderDetail = () => {
     return (
-      <View style={{ flex: 1, paddingHorizontal: SIZES.padding }}>
+      <View style={{flex: 1, paddingHorizontal: SIZES.padding}}>
         {/* Description */}
         <Text
           style={{
             color: COLORS.gray,
             marginTop: SIZES.radius,
-            width: "70%",
+            width: '70%',
             ...FONTS.body3,
-          }}
-        >
+          }}>
           Discover more than 1200 food recipes in your hand and cooking it
           easily!
         </Text>
 
         {/* Buttons */}
-        <View style={{ flex: 1, justifyContent: "center" }}>
+        <View style={{flex: 1, justifyContent: 'center'}}>
           <CustomButton
-            buttonContainerStyle={{ paddingVertical: 18, borderRadius: 20 }}
+            buttonContainerStyle={{paddingVertical: 18, borderRadius: 20}}
             buttonText="Login"
             colors={[COLORS.darkGreen, COLORS.lime]}
-            onPress={() => navigation.replace("Home")}
+            onPress={() => navigation.replace('Home')}
           />
           <CustomButton
             buttonContainerStyle={{
@@ -75,11 +71,11 @@ const Login = ({ navigation }) => {
               paddingVertical: 18,
               borderRadius: 20,
               borderColor: COLORS.darkLime,
-              borderWidth: 1
+              borderWidth: 1,
             }}
             buttonText="Sign Up"
             colors={[]}
-            onPress={() => navigation.replace("Home")}
+            onPress={() => navigation.replace('Home')}
           />
         </View>
       </View>
@@ -90,8 +86,7 @@ const Login = ({ navigation }) => {
       style={{
         flex: 1,
         backgroundColor: COLORS.black,
-      }}
-    >
+      }}>
       <StatusBar barStyle="light-content" />
       {/* Header */}
       {renderHeader()}
