@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   View,
   Text,
@@ -7,35 +7,32 @@ import {
   SafeAreaView,
   TextInput,
   FlatList,
-} from "react-native";
-import { CategoryCard, TrendingCard } from "../components";
-import { SIZES, FONTS, COLORS, images, dummyData, icons } from "../constants";
+} from 'react-native';
+import {CategoryCard, TrendingCard} from '../components';
+import {SIZES, FONTS, COLORS, images, dummyData, icons} from '../constants';
 
-const Home = ({ navigation }) => {
+const Home = ({navigation}) => {
   let renderSection = () => {
     return (
       <View
         style={{
-          flexDirection: "row",
+          flexDirection: 'row',
           marginHorizontal: SIZES.padding,
-          alignItems: "center",
+          alignItems: 'center',
           height: 80,
-        }}
-      >
+        }}>
         {/* Text */}
-        <View style={{ flex: 1 }}>
-          <Text style={{ color: COLORS.darkGreen, ...FONTS.h2 }}>
-            Hello John
-          </Text>
-          <Text style={{ marginTop: 3, color: COLORS.gray, ...FONTS.h3 }}>
+        <View style={{flex: 1}}>
+          <Text style={{color: COLORS.darkGreen, ...FONTS.h2}}>Hello John</Text>
+          <Text style={{marginTop: 3, color: COLORS.gray, ...FONTS.h3}}>
             What you want to cook today?
           </Text>
         </View>
         {/* Image */}
-        <TouchableOpacity onPress={() => console.log("Profile")}>
+        <TouchableOpacity onPress={() => console.log('Profile')}>
           <Image
             source={images.profile}
-            style={{ width: 40, height: 40, borderRadius: 20 }}
+            style={{width: 40, height: 40, borderRadius: 20}}
           />
         </TouchableOpacity>
       </View>
@@ -45,20 +42,19 @@ const Home = ({ navigation }) => {
     return (
       <View
         style={{
-          flexDirection: "row",
+          flexDirection: 'row',
           height: 50,
-          alignItems: "center",
+          alignItems: 'center',
           marginHorizontal: SIZES.radius,
           borderRadius: 10,
           backgroundColor: COLORS.lightGray,
-        }}
-      >
+        }}>
         <Image
           source={icons.search}
-          style={{ width: 20, height: 20, tintColor: COLORS.gray }}
+          style={{width: 20, height: 20, tintColor: COLORS.gray}}
         />
         <TextInput
-          style={{ marginLeft: SIZES.radius, ...FONTS.body3 }}
+          style={{marginLeft: SIZES.radius, ...FONTS.body3}}
           placeholder="Search Recipe"
           placeholderTextColor={COLORS.gray}
         />
@@ -69,35 +65,31 @@ const Home = ({ navigation }) => {
     return (
       <View
         style={{
-          flexDirection: "row",
+          flexDirection: 'row',
           marginTop: SIZES.padding,
           marginHorizontal: SIZES.padding,
           borderRadius: 10,
           backgroundColor: COLORS.lightGreen,
-        }}
-      >
+        }}>
         {/* Image */}
         <View
-          style={{ width: 100, alignItems: "center", justifyContent: "center" }}
-        >
-          <Image source={images.recipe} style={{ width: 80, height: 80 }} />
+          style={{width: 100, alignItems: 'center', justifyContent: 'center'}}>
+          <Image source={images.recipe} style={{width: 80, height: 80}} />
         </View>
         {/* Text */}
-        <View style={{ flex: 1, paddingVertical: SIZES.radius }}>
-          <Text style={{ width: "70%", ...FONTS.body4 }}>
+        <View style={{flex: 1, paddingVertical: SIZES.radius}}>
+          <Text style={{width: '70%', ...FONTS.body4}}>
             You have 12 recipes that you did not tried yet
           </Text>
           <TouchableOpacity
-            style={{ marginTop: 10 }}
-            onPress={() => console.log("Recipes")}
-          >
+            style={{marginTop: 10}}
+            onPress={() => console.log('Recipes')}>
             <Text
               style={{
                 color: COLORS.darkGreen,
-                textDecorationLine: "underline",
+                textDecorationLine: 'underline',
                 ...FONTS.h4,
-              }}
-            >
+              }}>
               See Recipes
             </Text>
           </TouchableOpacity>
@@ -107,21 +99,21 @@ const Home = ({ navigation }) => {
   };
   let renderTrendingSection = () => {
     return (
-      <View st={{ marginTop: 10 }}>
-        <Text style={{ marginHorizontal: SIZES.padding, ...FONTS.h2 }}>
+      <View st={{marginTop: 10}}>
+        <Text style={{marginHorizontal: SIZES.padding, ...FONTS.h2}}>
           Trending Recipes
         </Text>
         <FlatList
           data={dummyData.trendingRecipes}
           horizontal
           showsHorizontalScrollIndicator={false}
-          keyExtractor={(item) => `${item.id}`}
-          renderItem={({ item, index }) => {
+          keyExtractor={item => `${item.id}`}
+          renderItem={({item, index}) => {
             return (
               <TrendingCard
                 recipeItem={item}
-                containerStyle={{ marginLeft: index == 0 ? SIZES.padding : 0 }}
-                onPress={() => navigation.navigate("Recipe", { recipe: item })}
+                containerStyle={{marginLeft: index == 0 ? SIZES.padding : 0}}
+                onPress={() => navigation.navigate('Recipe', {recipe: item})}
               />
             );
           }}
@@ -134,30 +126,25 @@ const Home = ({ navigation }) => {
     return (
       <View
         style={{
-          flexDirection: "row",
-          alignItems: "center",
+          flexDirection: 'row',
+          alignItems: 'center',
           marginTop: 20,
           marginHorizontal: SIZES.padding,
-        }}
-      >
+        }}>
         {/* Section Title */}
-        <Text style={{flex: 1, ...FONTS.h2}} >
-          Categories
-        </Text>
+        <Text style={{flex: 1, ...FONTS.h2}}>Categories</Text>
         {/* View All */}
         <TouchableOpacity>
-          <Text style={{color: COLORS.gray, ...FONTS.body4}} >
-            View All
-          </Text>
+          <Text style={{color: COLORS.gray, ...FONTS.body4}}>View All</Text>
         </TouchableOpacity>
       </View>
     );
   };
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
+    <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
       <FlatList
         data={dummyData.categories}
-        keyExtractor={(item) => `${item.id}`}
+        keyExtractor={item => `${item.id}`}
         keyboardDismissMode="on-drag"
         showsVerticalScrollIndicator={false}
         ListHeaderComponent={
@@ -174,16 +161,16 @@ const Home = ({ navigation }) => {
             {renderCategoryHeader()}
           </View>
         }
-        renderItem={({ item }) => {
+        renderItem={({item}) => {
           return (
             <CategoryCard
               categoryItem={item}
-              containerStyle={{ marginHorizontal: SIZES.padding }}
-              onPress={() => navigation.navigate("Recipe", { recipe: item })}
+              containerStyle={{marginHorizontal: SIZES.padding}}
+              onPress={() => navigation.navigate('Recipe', {recipe: item})}
             />
           );
         }}
-        ListFooterComponent={<View style={{ marginBottom: 100 }} />}
+        ListFooterComponent={<View style={{marginBottom: 100}} />}
       />
     </SafeAreaView>
   );

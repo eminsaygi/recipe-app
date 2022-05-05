@@ -1,32 +1,31 @@
-import React from "react";
-import { View } from "react-native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import React from 'react';
+import {View} from 'react-native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import { Home } from "../screens";
-import { TabIcon } from "../components";
-import { COLORS, icons } from "../constants";
+import {Home} from '../screens';
+import {TabIcon} from '../components';
+import {COLORS, icons} from '../constants';
 const Tab = createBottomTabNavigator();
 
 const Tabs = () => {
   return (
     <Tab.Navigator
-      tabBarOptions={{ showLabel: false }}
+      tabBarOptions={{showLabel: false}}
       style={{
-        position: "absolute",
+        position: 'absolute',
         bottom: 0,
         left: 0,
         right: 0,
         elevation: 0,
         backgroundColor: COLORS.white,
-        borderTopColor: "transparent",
+        borderTopColor: 'transparent',
         height: 100,
-      }}
-    >
+      }}>
       <Tab.Screen
         name="Home"
         component={Home}
         options={{
-          tabBarIcon: ({ focused }) => (
+          tabBarIcon: ({focused}) => (
             <TabIcon focused={focused} icon={icons.home} />
           ),
         }}
@@ -35,7 +34,7 @@ const Tabs = () => {
         name="Search"
         component={Home}
         options={{
-          tabBarIcon: ({ focused }) => (
+          tabBarIcon: ({focused}) => (
             <TabIcon focused={focused} icon={icons.search} />
           ),
         }}
@@ -44,7 +43,7 @@ const Tabs = () => {
         name="Bookmark"
         component={Home}
         options={{
-          tabBarIcon: ({ focused }) => (
+          tabBarIcon: ({focused}) => (
             <TabIcon focused={focused} icon={icons.bookmark} />
           ),
         }}
@@ -53,7 +52,7 @@ const Tabs = () => {
         name="Settings"
         component={Home}
         options={{
-          tabBarIcon: ({ focused }) => (
+          tabBarIcon: ({focused}) => (
             <TabIcon focused={focused} icon={icons.settings} />
           ),
         }}
